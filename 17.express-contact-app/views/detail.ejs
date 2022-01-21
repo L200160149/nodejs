@@ -1,0 +1,10 @@
+<div class="container">
+    <% if (!contact) { %>
+        <p>Kontak tidak ditemukan</p>
+    <% } else { %>
+        <ul>
+            <li><%= contact.nama %> </li>
+            <li><%= contact.nohp %> </li>
+        </ul>
+    <% } %>
+</div>
