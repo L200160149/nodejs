@@ -1,0 +1,21 @@
+<div class="container">
+  <% if (!contact) { %>
+  <p>Kontak tidak ditemukan</p>
+  <% } else { %>
+  <ul>
+    <li><%= contact.nama %></li>
+    <li><%= contact.nohp %></li>
+    <li><%= contact.email %></li>
+    <li>
+      <a href="/contact/edit/<%= contact.nama %> ">Ubah</a>
+    </li>
+    <li>
+      <a
+        href="/contact/delete/<%= contact.nama %> "
+        onclick="return confirm('Hapus data ?')"
+        >Hapus</a
+      >
+    </li>
+  </ul>
+  <% } %>
+</div>

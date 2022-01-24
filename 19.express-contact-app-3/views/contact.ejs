@@ -1,0 +1,32 @@
+<img width="300px" src="img/img.jpg" alt="" />
+<h1>Hello Contact</h1>
+
+<a href="/contact/add">Tambah Contact</a>
+
+<% if (msg.length !== 0) { %>
+<p><%= msg %></p>
+<% } %>
+
+<table style="border: 1px solid black">
+  <thead>
+    <tr>
+      <td>No</td>
+      <td>Nama</td>
+      <td>No HP</td>
+      <td>Aksi</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (contacts.length === 0) { %>
+    <p>Kontak masih kosong</p>
+    <% } %> <% let no = 1 %> <% contacts.forEach(contact => { %>
+    <tr>
+      <td><%= no++ %></td>
+      <td><%= contact.nama %></td>
+      <td><%= contact.nohp %></td>
+      <td><a href="/contact/<%= contact.nama %> "><%= contact.nama %> </a></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+<ul></ul>
