@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb")
+const { MongoClient, ObjectId } = require("mongodb")
 
 const url = 'mongodb://127.0.0.1:27017'
 const dbName = 'wpu'
@@ -62,12 +62,66 @@ client.connect((error, client) => {
   // });
 
 
-  // menampilkan data spesifik
-    db.collection('mahasiswa')
-    .find({nama: 'Kucing'})
-    .toArray((error, result) => {
-      console.log(result)
-    })
+  // // menampilkan data spesifik
+  //   db.collection('mahasiswa')
+  //   .find({_id: ObjectId('61ee730dc46c1bcf2d48ea2d')})
+  //   .toArray((error, result) => {
+  //     console.log(result)
+  //   })
+
+  // const updatePromise = db.collection('mahasiswa').updateOne(
+  //     {
+  //       _id: ObjectId('61ee730dc46c1bcf2d48ea2d'),
+  //     },
+  //     {
+  //       $set : {
+  //         nama: 'Kota Semarang Jateng'
+  //       },
+  //     }
+  //   )
+
+  //   updatePromise.then((result) => {
+  //     console.log(result)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+
+
+  // mengubah data lebih dari 1
+  db.collection('mahasiswa').updateMany(
+    {
+      nama: 'Semarang',
+    },
+    {
+      $set: {
+        nama: 'Kotaa Semarang'
+      }
+    }
+  )
+
+  
+  // // menghapus 1 data
+  // db.collection('mahasiswa').deleteOne(
+  //   {
+  //     _id: ObjectId('61ee730dc46c1bcf2d48ea2d')
+  //   }
+  // ).then((result) => {
+  //   console.log(result)
+  // }).catch((error) => {
+  //   console.log(error)
+  // })
+
+  // menghapus lebih dari 1 data
+  db.collection('mahasiswa').deleteMany(
+    {
+     nama: 'Kotaa Semarang'
+    }
+  ).then((result) => {
+    console.log(result)
+  }).catch((error) => {
+    console.log(error)
+  })
 })
 
 

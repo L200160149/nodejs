@@ -1,0 +1,20 @@
+<div class="container">
+  <% if (!contact) { %>
+  <p>Kontak tidak ditemukan</p>
+  <% } else { %>
+  <ul>
+    <li><%= contact.nama %></li>
+    <li><%= contact.nohp %></li>
+    <li><%= contact.email %></li>
+    <li>
+      <a href="/contact/edit/<%= contact.nama %> ">Ubah</a>
+    </li>
+    <li>
+        <form method="POST" action="/contact?_method=DELETE">
+          <input type="hidden" name="nama" value="<%= contact.nama %>">
+          <button type="submit" onclick="return confirm('Hapus data ?')">Delete</button>
+        </form>
+    </li>
+  </ul>
+  <% } %>
+</div>
